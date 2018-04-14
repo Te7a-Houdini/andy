@@ -25,14 +25,10 @@ class BudgetAdd extends Command
             'amount' => 'numeric'
         ]);
 
-        $name = $this->argument('name');
-        $amount = $this->argument('amount');
-        $type = $this->choice('What is the budget type?', ['recurring', 'single']);
-
         Budget::create([
-            'name' => $name,
-            'amount' => $amount,
-            'type' => $type,
+            'name' => $this->argument('name'),
+            'amount' => $this->argument('amount'),
+            'type' => $this->choice('What is the budget type?', ['recurring', 'single']),
         ]);
     }
 }
